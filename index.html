@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Text Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .small { font-size: 20px; }
+        .medium { font-size: 30px; }
+        .large { font-size: 40px; }
+        .extra-large { font-size: 60px; }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamic Text Generator</h1>
+    <p>Enter some text and customize its appearance below:</p>
+
+    <label for="userText">Enter Your Text:</label>
+    <input type="text" id="userText" value="reshma"><br><br>
+
+    <label for="fontSize">Font Size:</label>
+    <select id="fontSize">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="extra-large" selected>Extra Large</option>
+    </select><br><br>
+
+    <label for="textColor">Text Color:</label>
+    <input type="text" id="textColor" value="red"><br><br>
+
+    <label for="bgColor">Background Color:</label>
+    <input type="text" id="bgColor" value="yellow"><br><br>
+
+    <button onclick="generateText()">Generate</button>
+
+    <div id="output"></div>
+
+    <script>
+        function generateText() {
+            const text = document.getElementById('userText').value;
+            const size = document.getElementById('fontSize').value;
+            const textColor = document.getElementById('textColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+
+            const output = document.getElementById('output');
+            output.className = size;
+            output.style.color = textColor;
+            output.style.backgroundColor = bgColor;
+            output.textContent = text;
+        }
+    </script>
+
+</body>
+</html>
